@@ -1,0 +1,13 @@
+package kemalkeskin.rentABook.business.abstracts;
+
+import java.util.List;
+
+import kemalkeskin.rentABook.business.requests.book.CreateBookRequest;
+import kemalkeskin.rentABook.business.responses.book.GetAllBookResponse;
+
+public interface BookService {
+
+	List<GetAllBookResponse>getAll();
+	
+	void add(CreateBookRequest createBookRequest);
+}

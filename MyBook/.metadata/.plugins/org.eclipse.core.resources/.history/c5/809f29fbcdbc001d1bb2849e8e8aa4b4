@@ -1,0 +1,21 @@
+package kemalkeskin.rentABook.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import kemalkeskin.rentABook.business.abstracts.AuthorService;
+import kemalkeskin.rentABook.dataAccess.abstracts.AuthorRepository;
+import kemalkeskin.rentABook.entitities.concretes.Author;
+import lombok.AllArgsConstructor;
+@Service
+@AllArgsConstructor
+public class AuthorManager implements AuthorService {
+
+	private AuthorRepository authorRepository;
+	@Override
+	public Author giveAuthorId(int id) {
+	
+		return authorRepository.findById(id).orElseThrow();
+				
+	}
+
+}

@@ -1,0 +1,13 @@
+package kemalkeskin.rentABook.business.abstracts;
+
+import java.util.List;
+
+import kemalkeskin.rentABook.business.responses.author.GetAllAuthorResponse;
+import kemalkeskin.rentABook.entitities.concretes.Author;
+
+public interface AuthorService {
+	List<GetAllAuthorResponse>getAll();
+	
+	Author giveAuthorId(int id);
+
+}

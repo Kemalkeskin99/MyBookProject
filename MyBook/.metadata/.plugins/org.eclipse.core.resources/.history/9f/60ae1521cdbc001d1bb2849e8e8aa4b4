@@ -1,0 +1,9 @@
+package kemalkeskin.rentABook.business.abstracts;
+
+import kemalkeskin.rentABook.entitities.concretes.Author;
+
+public interface AuthorService {
+	
+	Author giveAuthorId(int id);
+
+}

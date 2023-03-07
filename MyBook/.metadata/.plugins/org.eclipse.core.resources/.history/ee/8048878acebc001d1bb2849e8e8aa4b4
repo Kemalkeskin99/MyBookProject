@@ -1,0 +1,6 @@
+package kemalkeskin.rentABook.business.requests.author;
+
+public class CreateAuthorRequest {
+
+	
+}

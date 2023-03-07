@@ -1,0 +1,29 @@
+package kemalkeskin.rentABook.business.concretes;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import kemalkeskin.rentABook.business.abstracts.BookService;
+import kemalkeskin.rentABook.business.responses.book.GetAllBookResponse;
+import kemalkeskin.rentABook.core.mapper.ModelMapperService;
+import kemalkeskin.rentABook.dataAccess.abstracts.BookRepository;
+import kemalkeskin.rentABook.entitities.concretes.Book;
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class BookManager implements BookService {@Override
+	
+	private BookRepository bookRepository;
+	private ModelMapperService modelMapperService;
+
+	public List<GetAllBookResponse> getAll() {
+		List<Book> books=bookRepository.findAll();
+		List<GetAllBookResponse>getAllBookResponses=books.stream()
+				.map(book->modelMapperService.forResponse().map(Book.class, GetAllBookResponse.class)).collect(Collectors.toList());
+		return getAllBookResponses;
+	}
+
+}

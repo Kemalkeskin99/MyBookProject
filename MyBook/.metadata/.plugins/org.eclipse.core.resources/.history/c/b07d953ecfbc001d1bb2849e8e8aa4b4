@@ -1,0 +1,7 @@
+package kemalkeskin.rentABook.business.responses.author;
+
+public class GetByIdAuthorResponse {
+	
+	private string authorName;
+
+}

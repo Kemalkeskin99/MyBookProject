@@ -1,0 +1,42 @@
+package kemalkeskin.rentABook.webApi;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import kemalkeskin.rentABook.business.abstracts.BookService;
+import kemalkeskin.rentABook.business.requests.book.CreateBookRequest;
+import kemalkeskin.rentABook.business.responses.book.GetAllBookResponse;
+import kemalkeskin.rentABook.business.responses.book.GetByIdBookResponse;
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/api/books")
+@AllArgsConstructor
+public class BooksController {
+
+	private BookService bookService;
+	
+	@GetMapping
+	public List<GetAllBookResponse> getAll(){
+		return bookService.getAll();
+	}
+	
+	@GetMapping("/{id}")
+	public GetByIdBookResponse getById(@PathVariable int id) {
+		return this.bookService.getById(id);
+	}
+	
+	@PostMapping
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public void add( @RequestBody() CreateBookRequest createBookRequest) {
+		this.bookService.add(createBookRequest);
+	}
+}

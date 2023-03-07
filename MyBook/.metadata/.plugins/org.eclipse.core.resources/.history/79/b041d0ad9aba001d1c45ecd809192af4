@@ -1,0 +1,5 @@
+package kemalkeskin.rentABook.core.mapper;
+
+public class ModelMapperManager {
+
+}
